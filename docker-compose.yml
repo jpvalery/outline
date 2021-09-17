@@ -31,7 +31,6 @@ services:
       - "3000:3000"
     volumes:
       - .:/opt/outline
-        restart: always
     depends_on:
       - postgres
       - redis
