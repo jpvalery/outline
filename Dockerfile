@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.2
 ARG APP_PATH=/opt/outline
-FROM node:14-alpine AS deps-common
+FROM arm64v8/node:14-alpine AS deps-common
 
 ARG APP_PATH
 WORKDIR $APP_PATH
