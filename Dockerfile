@@ -17,7 +17,7 @@ RUN yarn install --production=true --frozen-lockfile && \
   yarn cache clean
 
 # ---
-FROM node:14-alpine AS builder
+FROM arm64v8/node:14-alpine AS builder
 
 ARG APP_PATH
 WORKDIR $APP_PATH
@@ -27,7 +27,7 @@ COPY --from=deps-dev $APP_PATH/node_modules ./node_modules
 RUN yarn build
 
 # ---
-FROM node:14-alpine AS runner
+FROM arm64v8/node:14-alpine AS runner
 
 ARG APP_PATH
 WORKDIR $APP_PATH
