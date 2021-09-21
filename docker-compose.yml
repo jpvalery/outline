@@ -18,7 +18,6 @@ services:
       - ./data/minio_root:/minio_root:z
       - ./data/certs:/root/.minio/certs:z
     command: "minio server /minio_root"
-    env_file: ./.env.minio
     ports: 
       - "9000:9000"
     restart: always
