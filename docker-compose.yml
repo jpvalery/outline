@@ -13,7 +13,7 @@ services:
       - ./data/pgdata:/var/lib/postgresql/data
     restart: always
   minio:
-    image: minio/minio
+    image: tobi312/minio
     volumes:
       - ./data/minio_root:/minio_root:z
       - ./data/certs:/root/.minio/certs:z
