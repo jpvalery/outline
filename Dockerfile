@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.2
 ARG APP_PATH=/opt/outline
-FROM arm64v8/node:14-alpine AS deps-common
+FROM arm64v7/node:14-alpine AS deps-common
 
 ARG APP_PATH
 WORKDIR $APP_PATH
@@ -17,7 +17,7 @@ RUN yarn install --production=true --frozen-lockfile && \
   yarn cache clean
 
 # ---
-FROM arm64v8/node:14-alpine AS builder
+FROM arm64v7/node:14-alpine AS builder
 
 ARG APP_PATH
 WORKDIR $APP_PATH
@@ -27,7 +27,7 @@ COPY --from=deps-dev $APP_PATH/node_modules ./node_modules
 RUN yarn build
 
 # ---
-FROM arm64v8/node:14-alpine AS runner
+FROM arm64v7/node:14-alpine AS runner
 
 ARG APP_PATH
 WORKDIR $APP_PATH
