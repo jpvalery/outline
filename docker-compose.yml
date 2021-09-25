@@ -29,7 +29,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/opt/outline
+      - ~/outline
+        restart: always
     depends_on:
       - postgres
       - redis
